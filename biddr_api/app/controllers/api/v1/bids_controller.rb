@@ -1,4 +1,6 @@
 class Api::V1::BidsController < Api::ApplicationController
+  before_action :authenticate_user!, only: [:create]
+
   def create
     bid = Bid.new bid_params
     bid.auction = Auction.find params[:auction_id]
@@ -14,4 +16,5 @@ class Api::V1::BidsController < Api::ApplicationController
   def bid_params
     params.require(:bid).permit(:offer)
   end
+  
 end
