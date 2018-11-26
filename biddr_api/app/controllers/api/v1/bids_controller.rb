@@ -1,4 +1,4 @@
-class Api::V1::BidsController < ApplicationController
+class Api::V1::BidsController < Api::ApplicationController
   def create
     bid = Bid.new bid_params
     bid.auction = Auction.find params[:auction_id]

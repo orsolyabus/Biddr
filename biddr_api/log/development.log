@@ -437,3 +437,73 @@ Migrating to CreateUsers (20181126192823)
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
   [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "orsi@test.ca"], ["password_digest", "$2a$10$cSwVHMWZVZdrg3N9mVSj1OgpIflnLe6oyl9GxebQTB2vOum.0QOEi"], ["created_at", "2018-11-26 19:33:11.041741"], ["updated_at", "2018-11-26 19:33:11.041741"]]
   [1m[35m (38.3ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/api/v1/sessions?email=luke&password=[FILTERED]" for 127.0.0.1 at 2018-11-26 11:46:57 -0800
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/orsolya/.rvm/gems/ruby-2.5.2/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  
+ActionController::RoutingError (undefined method `helper_method' for Api::ApplicationController:Class):
+  
+app/controllers/api/application_controller.rb:14:in `<class:ApplicationController>'
+app/controllers/api/application_controller.rb:1:in `<main>'
+app/controllers/api/v1/sessions_controller.rb:1:in `<main>'
+Started POST "/api/v1/sessions?email=luke&password=[FILTERED]" for 127.0.0.1 at 2018-11-26 11:47:34 -0800
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"auction"=>{"title"=>"used toothbursh", "details"=>"bearly used"}, "email"=>"luke", "password"=>"[FILTERED]"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+LoadError (cannot load such file -- bcrypt):
+  
+app/models/user.rb:9:in `<class:User>'
+app/models/user.rb:1:in `<main>'
+app/controllers/api/v1/sessions_controller.rb:4:in `create'
+Started POST "/api/v1/sessions?email=luke&password=[FILTERED]" for 127.0.0.1 at 2018-11-26 11:48:26 -0800
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/orsolya/.rvm/gems/ruby-2.5.2/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"auction"=>{"title"=>"used toothbursh", "details"=>"bearly used"}, "email"=>"luke", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "luke"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 200 OK in 8ms (Views: 3.4ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/api/v1/sessions?email=orsi@test.com&password=[FILTERED]" for 127.0.0.1 at 2018-11-26 11:48:47 -0800
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"auction"=>{"title"=>"used toothbursh", "details"=>"bearly used"}, "email"=>"orsi@test.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "orsi@test.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:4
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/api/v1/sessions?email=orsi@test.ca&password=[FILTERED]" for 127.0.0.1 at 2018-11-26 11:48:56 -0800
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"auction"=>{"title"=>"used toothbursh", "details"=>"bearly used"}, "email"=>"orsi@test.ca", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "orsi@test.ca"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:4
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/application_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 200 OK in 74ms (Views: 1.8ms | ActiveRecord: 2.9ms)
+
+
+Started DELETE "/api/v1/sessions" for 127.0.0.1 at 2018-11-26 11:49:19 -0800
+Processing by Api::V1::SessionsController#destroy as */*
+  Parameters: {"auction"=>{"title"=>"used toothbursh", "details"=>"bearly used"}}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/v1/sessions?email=orsi@test.ca&password=[FILTERED]" for 127.0.0.1 at 2018-11-26 11:49:32 -0800
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"auction"=>{"title"=>"used toothbursh", "details"=>"bearly used"}, "email"=>"orsi@test.ca", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "orsi@test.ca"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:4
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/application_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 200 OK in 64ms (Views: 1.3ms | ActiveRecord: 0.7ms)
+
+
