@@ -204,3 +204,210 @@ FOREIGN KEY ("auction_id")
   ↳ bin/rails:9
   [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8427587142396744315)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddAuctionReferenceToBids (20181126182823)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE "bids" DROP CONSTRAINT "fk_rails_7332d1a025"[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "bids" DROP COLUMN "auction_id"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.5ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20181126182823"]]
+  ↳ bin/rails:9
+  [1m[35m (18.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(8427587142396744315)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8427587142396744315)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateBids (20181126182633)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (3.7ms)[0m  [1m[35mDROP TABLE "bids"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.4ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20181126182633"]]
+  ↳ bin/rails:9
+  [1m[35m (18.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(8427587142396744315)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8427587142396744315)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateBids (20181126182633)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (39.4ms)[0m  [1m[35mCREATE TABLE "bids" ("id" bigserial primary key, "offer" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20181126182633_create_bids.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181126182633"]]
+  ↳ bin/rails:9
+  [1m[35m (19.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to AddAuctionReferenceToBids (20181126182823)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "bids" ADD "auction_id" bigint[0m
+  ↳ db/migrate/20181126182823_add_auction_reference_to_bids.rb:3
+  [1m[35m (40.8ms)[0m  [1m[35mCREATE  INDEX  "index_bids_on_auction_id" ON "bids"  ("auction_id")[0m
+  ↳ db/migrate/20181126182823_add_auction_reference_to_bids.rb:3
+  [1m[35m (3.1ms)[0m  [1m[35mALTER TABLE "bids" ADD CONSTRAINT "fk_rails_7332d1a025"
+FOREIGN KEY ("auction_id")
+  REFERENCES "auctions" ("id")
+[0m
+  ↳ db/migrate/20181126182823_add_auction_reference_to_bids.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181126182823"]]
+  ↳ bin/rails:9
+  [1m[35m (20.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8427587142396744315)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started POST "/api/v1/auctions/1/bids?bid[offer]=342" for 127.0.0.1 at 2018-11-26 10:51:17 -0800
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/orsolya/.rvm/gems/ruby-2.5.2/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  
+SyntaxError (/home/orsolya/codecore/final_exam/biddr_api/app/controllers/api/v1/bids_controller.rb:16: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/api/v1/bids_controller.rb:16: syntax error, unexpected end-of-input, expecting keyword_end
+Started POST "/api/v1/auctions/1/bids?bid[offer]=342" for 127.0.0.1 at 2018-11-26 10:51:58 -0800
+Processing by Api::V1::BidsController#create as */*
+  Parameters: {"auction"=>{"title"=>"used toothbursh", "details"=>"bearly used"}, "bid"=>{"offer"=>"342"}, "auction_id"=>"1"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/orsolya/codecore/final_exam/biddr_api/app/models/bid.rb:2: syntax error, unexpected tINTEGER, expecting keyword_end
+... numericallity: :greater_than 0
+...                              ^):
+  
+app/models/bid.rb:2: syntax error, unexpected tINTEGER, expecting keyword_end
+app/controllers/api/v1/bids_controller.rb:3:in `create'
+  [1m[36mBid Load (0.4ms)[0m  [1m[34mSELECT "bids".* FROM "bids"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Load (0.3ms)[0m  [1m[34mSELECT  "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBid Create (0.6ms)[0m  [1m[32mINSERT INTO "bids" ("offer", "created_at", "updated_at", "auction_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["offer", 34], ["created_at", "2018-11-26 18:59:04.670509"], ["updated_at", "2018-11-26 18:59:04.670509"], ["auction_id", 1]]
+  [1m[35m (38.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mBid Load (0.9ms)[0m  [1m[34mSELECT "bids".* FROM "bids"[0m
+  [1m[36mAuction Load (1.2ms)[0m  [1m[34mSELECT "auctions".* FROM "auctions"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (1.4ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "details", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "new mouse"], ["details", "in box"], ["created_at", "2018-11-26 19:00:41.829876"], ["updated_at", "2018-11-26 19:00:41.829876"]]
+  [1m[35m (21.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Load (1.0ms)[0m  [1m[34mSELECT  "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBid Create (1.8ms)[0m  [1m[32mINSERT INTO "bids" ("offer", "created_at", "updated_at", "auction_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["offer", 456], ["created_at", "2018-11-26 19:01:07.817588"], ["updated_at", "2018-11-26 19:01:07.817588"], ["auction_id", 3]]
+  [1m[35m (25.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mBid Load (0.9ms)[0m  [1m[34mSELECT  "bids".* FROM "bids" WHERE "bids"."auction_id" = $1 LIMIT $2[0m  [["auction_id", 1], ["LIMIT", 1]]
+  [1m[36mBid Load (1.1ms)[0m  [1m[34mSELECT  "bids".* FROM "bids" WHERE "bids"."auction_id" = $1 LIMIT $2[0m  [["auction_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Load (0.2ms)[0m  [1m[34mSELECT  "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBid Create (0.3ms)[0m  [1m[32mINSERT INTO "bids" ("offer", "created_at", "updated_at", "auction_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["offer", 456], ["created_at", "2018-11-26 19:02:12.129534"], ["updated_at", "2018-11-26 19:02:12.129534"], ["auction_id", 1]]
+  [1m[35m (19.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mBid Load (1.1ms)[0m  [1m[34mSELECT  "bids".* FROM "bids" WHERE "bids"."auction_id" = $1 LIMIT $2[0m  [["auction_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Load (1.0ms)[0m  [1m[34mSELECT  "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBid Create (1.6ms)[0m  [1m[32mINSERT INTO "bids" ("offer", "created_at", "updated_at", "auction_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["offer", 3], ["created_at", "2018-11-26 19:02:40.164146"], ["updated_at", "2018-11-26 19:02:40.164146"], ["auction_id", 1]]
+  [1m[35m (24.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mBid Load (1.1ms)[0m  [1m[34mSELECT  "bids".* FROM "bids" WHERE "bids"."auction_id" = $1 LIMIT $2[0m  [["auction_id", 1], ["LIMIT", 1]]
+  [1m[36mBid Load (0.9ms)[0m  [1m[34mSELECT "bids".* FROM "bids" WHERE "bids"."auction_id" = $1[0m  [["auction_id", 1]]
+  [1m[36mBid Load (1.1ms)[0m  [1m[34mSELECT  "bids".* FROM "bids" WHERE "bids"."auction_id" = $1 ORDER BY "bids"."id" DESC LIMIT $2[0m  [["auction_id", 1], ["LIMIT", 1]]
+  [1m[36mBid Load (1.1ms)[0m  [1m[34mSELECT  "bids".* FROM "bids" WHERE "bids"."auction_id" = $1 ORDER BY "bids"."id" DESC LIMIT $2[0m  [["auction_id", 1], ["LIMIT", 1]]
+  [1m[36mBid Load (0.6ms)[0m  [1m[34mSELECT  "bids".* FROM "bids" WHERE "bids"."auction_id" = $1 LIMIT $2[0m  [["auction_id", 3], ["LIMIT", 1]]
+  [1m[36mBid Load (1.1ms)[0m  [1m[34mSELECT  "bids".* FROM "bids" WHERE "bids"."auction_id" = $1 LIMIT $2[0m  [["auction_id", 3], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBid Destroy (1.3ms)[0m  [1m[31mDELETE FROM "bids" WHERE "bids"."id" = $1[0m  [["id", 2]]
+  [1m[35m (19.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mBid Load (1.0ms)[0m  [1m[34mSELECT  "bids".* FROM "bids" WHERE "bids"."auction_id" = $1 ORDER BY "bids"."id" DESC LIMIT $2[0m  [["auction_id", 3], ["LIMIT", 1]]
+  [1m[36mBid Load (0.6ms)[0m  [1m[34mSELECT  "bids".* FROM "bids" WHERE "bids"."auction_id" = $1 ORDER BY "bids"."id" DESC LIMIT $2[0m  [["auction_id", 3], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBid Load (1.2ms)[0m  [1m[34mSELECT  "bids".* FROM "bids" WHERE "bids"."auction_id" = $1 ORDER BY "bids"."id" DESC LIMIT $2[0m  [["auction_id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBid Load (0.2ms)[0m  [1m[34mSELECT  "bids".* FROM "bids" WHERE "bids"."auction_id" = $1 ORDER BY "bids"."id" DESC LIMIT $2[0m  [["auction_id", 3], ["LIMIT", 1]]
+  [1m[36mAuction Load (0.1ms)[0m  [1m[34mSELECT  "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBid Create (0.3ms)[0m  [1m[32mINSERT INTO "bids" ("offer", "created_at", "updated_at", "auction_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["offer", 45], ["created_at", "2018-11-26 19:08:19.328429"], ["updated_at", "2018-11-26 19:08:19.328429"], ["auction_id", 3]]
+  [1m[35m (17.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBid Load (0.2ms)[0m  [1m[34mSELECT  "bids".* FROM "bids" WHERE "bids"."auction_id" = $1 ORDER BY "bids"."id" DESC LIMIT $2[0m  [["auction_id", 3], ["LIMIT", 1]]
+  [1m[36mAuction Load (0.3ms)[0m  [1m[34mSELECT  "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBid Create (0.3ms)[0m  [1m[32mINSERT INTO "bids" ("offer", "created_at", "updated_at", "auction_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["offer", -45], ["created_at", "2018-11-26 19:09:11.028661"], ["updated_at", "2018-11-26 19:09:11.028661"], ["auction_id", 3]]
+  [1m[35m (20.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBid Load (0.2ms)[0m  [1m[34mSELECT  "bids".* FROM "bids" WHERE "bids"."auction_id" = $1 ORDER BY "bids"."id" DESC LIMIT $2[0m  [["auction_id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBid Load (0.2ms)[0m  [1m[34mSELECT  "bids".* FROM "bids" WHERE "bids"."auction_id" = $1 ORDER BY "bids"."id" DESC LIMIT $2[0m  [["auction_id", 3], ["LIMIT", 1]]
+  [1m[36mAuction Load (0.2ms)[0m  [1m[34mSELECT  "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBid Load (0.6ms)[0m  [1m[34mSELECT  "bids".* FROM "bids" WHERE "bids"."auction_id" = $1 ORDER BY "bids"."id" DESC LIMIT $2[0m  [["auction_id", 3], ["LIMIT", 1]]
+  [1m[36mAuction Load (0.8ms)[0m  [1m[34mSELECT  "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBid Load (0.2ms)[0m  [1m[34mSELECT  "bids".* FROM "bids" WHERE "bids"."auction_id" = $1 ORDER BY "bids"."id" DESC LIMIT $2[0m  [["auction_id", 3], ["LIMIT", 1]]
+  [1m[36mAuction Load (0.2ms)[0m  [1m[34mSELECT  "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+Started POST "/api/v1/auctions/1/bids?bid[offer]=342" for 127.0.0.1 at 2018-11-26 11:20:42 -0800
+Processing by Api::V1::BidsController#create as */*
+  Parameters: {"auction"=>{"title"=>"used toothbursh", "details"=>"bearly used"}, "bid"=>{"offer"=>"342"}, "auction_id"=>"1"}
+  [1m[36mAuction Load (0.3ms)[0m  [1m[34mSELECT  "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/bids_controller.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/bids_controller.rb:5
+  [1m[36mBid Load (0.5ms)[0m  [1m[34mSELECT  "bids".* FROM "bids" WHERE "bids"."auction_id" = $1 ORDER BY "bids"."id" DESC LIMIT $2[0m  [["auction_id", 1], ["LIMIT", 1]]
+  ↳ app/models/bid.rb:10
+  [1m[36mBid Create (0.4ms)[0m  [1m[32mINSERT INTO "bids" ("offer", "created_at", "updated_at", "auction_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["offer", 342], ["created_at", "2018-11-26 19:20:42.426035"], ["updated_at", "2018-11-26 19:20:42.426035"], ["auction_id", 1]]
+  ↳ app/controllers/api/v1/bids_controller.rb:5
+  [1m[35m (23.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/bids_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Bid (0.85ms)
+Completed 200 OK in 85ms (Views: 28.0ms | ActiveRecord: 31.7ms)
+
+
+Started POST "/api/v1/auctions/1/bids?bid[offer]=342" for 127.0.0.1 at 2018-11-26 11:21:31 -0800
+Processing by Api::V1::BidsController#create as */*
+  Parameters: {"auction"=>{"title"=>"used toothbursh", "details"=>"bearly used"}, "bid"=>{"offer"=>"342"}, "auction_id"=>"1"}
+  [1m[36mAuction Load (0.3ms)[0m  [1m[34mSELECT  "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/bids_controller.rb:4
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/bids_controller.rb:5
+  [1m[36mBid Load (0.3ms)[0m  [1m[34mSELECT  "bids".* FROM "bids" WHERE "bids"."auction_id" = $1 ORDER BY "bids"."id" DESC LIMIT $2[0m  [["auction_id", 1], ["LIMIT", 1]]
+  ↳ app/models/bid.rb:10
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/bids_controller.rb:5
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 200 OK in 34ms (Views: 4.2ms | ActiveRecord: 8.5ms)
+
+

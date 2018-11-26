@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2018_11_26_182823) do
   end
 
   create_table "bids", force: :cascade do |t|
-    t.integer "price"
+    t.integer "offer"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "auction_id"
