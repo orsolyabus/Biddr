@@ -2,7 +2,7 @@ import React from 'react';
 
 const WelcomePage = (props) => {
   return(
-    <div>
+    <div className="WelcomePage">
       <h1>Welcome to Biddr!</h1>
     </div>
   )
