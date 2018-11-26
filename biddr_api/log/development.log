@@ -711,3 +711,283 @@ No serializer found for resource: #<Auction id: 3, title: "new mouse", details: 
 Completed 200 OK in 18ms (Views: 13.0ms | ActiveRecord: 4.1ms)
 
 
+Started GET "/api/v1/auctions/undefined" for 127.0.0.1 at 2018-11-26 14:25:01 -0800
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/orsolya/.rvm/gems/ruby-2.5.2/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::AuctionsController#show as */*
+  Parameters: {"id"=>"undefined"}
+  [1m[36mAuction Load (0.6ms)[0m  [1m[34mSELECT  "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auctions_controller.rb:30
+Completed 404 Not Found in 25ms (ActiveRecord: 4.6ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Auction with 'id'=undefined):
+  
+app/controllers/api/v1/auctions_controller.rb:30:in `auction'
+app/controllers/api/v1/auctions_controller.rb:14:in `show'
+Started GET "/api/v1/auctions" for 127.0.0.1 at 2018-11-26 14:25:14 -0800
+Processing by Api::V1::AuctionsController#index as */*
+  [1m[36mAuction Load (0.8ms)[0m  [1m[34mSELECT "auctions".* FROM "auctions" ORDER BY "auctions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/auctions_controller.rb:19
+No serializer found for resource: #<Auction id: 3, title: "new mouse", details: "in box", ends_on: nil, reserved_price: nil, created_at: "2018-11-26 19:00:41", updated_at: "2018-11-26 19:00:41", user_id: nil>
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Auction::ActiveRecord_Relation (0.39ms)
+Completed 200 OK in 29ms (Views: 26.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/api/v1/auctions/undefined" for 127.0.0.1 at 2018-11-26 14:25:15 -0800
+Processing by Api::V1::AuctionsController#show as */*
+  Parameters: {"id"=>"undefined"}
+  [1m[36mAuction Load (3.1ms)[0m  [1m[34mSELECT  "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auctions_controller.rb:30
+Completed 404 Not Found in 9ms (ActiveRecord: 3.8ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Auction with 'id'=undefined):
+  
+app/controllers/api/v1/auctions_controller.rb:30:in `auction'
+app/controllers/api/v1/auctions_controller.rb:14:in `show'
+Started GET "/api/v1/auctions/undefined" for 127.0.0.1 at 2018-11-26 14:25:39 -0800
+Processing by Api::V1::AuctionsController#show as */*
+  Parameters: {"id"=>"undefined"}
+  [1m[36mAuction Load (0.4ms)[0m  [1m[34mSELECT  "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auctions_controller.rb:30
+Completed 404 Not Found in 1ms (ActiveRecord: 0.4ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Auction with 'id'=undefined):
+  
+app/controllers/api/v1/auctions_controller.rb:30:in `auction'
+app/controllers/api/v1/auctions_controller.rb:14:in `show'
+Started GET "/api/v1/auctions/undefined" for 127.0.0.1 at 2018-11-26 14:26:07 -0800
+Processing by Api::V1::AuctionsController#show as */*
+  Parameters: {"id"=>"undefined"}
+  [1m[36mAuction Load (0.3ms)[0m  [1m[34mSELECT  "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auctions_controller.rb:30
+Completed 404 Not Found in 1ms (ActiveRecord: 0.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Auction with 'id'=undefined):
+  
+app/controllers/api/v1/auctions_controller.rb:30:in `auction'
+app/controllers/api/v1/auctions_controller.rb:14:in `show'
+Started GET "/api/v1/auctions" for 127.0.0.1 at 2018-11-26 14:26:24 -0800
+Processing by Api::V1::AuctionsController#index as */*
+  [1m[36mAuction Load (1.8ms)[0m  [1m[34mSELECT "auctions".* FROM "auctions" ORDER BY "auctions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/auctions_controller.rb:19
+No serializer found for resource: #<Auction id: 3, title: "new mouse", details: "in box", ends_on: nil, reserved_price: nil, created_at: "2018-11-26 19:00:41", updated_at: "2018-11-26 19:00:41", user_id: nil>
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Auction::ActiveRecord_Relation (1.53ms)
+Completed 200 OK in 9ms (Views: 6.8ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/api/v1/auctions/undefined" for 127.0.0.1 at 2018-11-26 14:26:25 -0800
+Processing by Api::V1::AuctionsController#show as */*
+  Parameters: {"id"=>"undefined"}
+  [1m[36mAuction Load (0.4ms)[0m  [1m[34mSELECT  "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auctions_controller.rb:30
+Completed 404 Not Found in 2ms (ActiveRecord: 0.4ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Auction with 'id'=undefined):
+  
+app/controllers/api/v1/auctions_controller.rb:30:in `auction'
+app/controllers/api/v1/auctions_controller.rb:14:in `show'
+Started GET "/api/v1/auctions/undefined" for 127.0.0.1 at 2018-11-26 14:28:31 -0800
+Processing by Api::V1::AuctionsController#show as */*
+  Parameters: {"id"=>"undefined"}
+  [1m[36mAuction Load (0.3ms)[0m  [1m[34mSELECT  "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auctions_controller.rb:30
+Completed 404 Not Found in 1ms (ActiveRecord: 0.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Auction with 'id'=undefined):
+  
+app/controllers/api/v1/auctions_controller.rb:30:in `auction'
+app/controllers/api/v1/auctions_controller.rb:14:in `show'
+Started GET "/api/v1/auctions/undefined" for 127.0.0.1 at 2018-11-26 14:30:35 -0800
+Processing by Api::V1::AuctionsController#show as */*
+  Parameters: {"id"=>"undefined"}
+  [1m[36mAuction Load (0.2ms)[0m  [1m[34mSELECT  "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auctions_controller.rb:30
+Completed 404 Not Found in 1ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Auction with 'id'=undefined):
+  
+app/controllers/api/v1/auctions_controller.rb:30:in `auction'
+app/controllers/api/v1/auctions_controller.rb:14:in `show'
+Started GET "/api/v1/auctions/undefined" for 127.0.0.1 at 2018-11-26 14:31:08 -0800
+Processing by Api::V1::AuctionsController#show as */*
+  Parameters: {"id"=>"undefined"}
+  [1m[36mAuction Load (0.2ms)[0m  [1m[34mSELECT  "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auctions_controller.rb:30
+Completed 404 Not Found in 1ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Auction with 'id'=undefined):
+  
+app/controllers/api/v1/auctions_controller.rb:30:in `auction'
+app/controllers/api/v1/auctions_controller.rb:14:in `show'
+Started GET "/api/v1/auctions/3" for 127.0.0.1 at 2018-11-26 14:32:03 -0800
+Processing by Api::V1::AuctionsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mAuction Load (0.2ms)[0m  [1m[34mSELECT  "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auctions_controller.rb:30
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Auction (0.42ms)
+Completed 200 OK in 9ms (Views: 8.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/v1/auctions/3" for 127.0.0.1 at 2018-11-26 14:32:29 -0800
+Processing by Api::V1::AuctionsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mAuction Load (0.2ms)[0m  [1m[34mSELECT  "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auctions_controller.rb:30
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Auction (0.3ms)
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/v1/auctions/3" for 127.0.0.1 at 2018-11-26 14:32:47 -0800
+Processing by Api::V1::AuctionsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mAuction Load (0.2ms)[0m  [1m[34mSELECT  "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auctions_controller.rb:30
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Auction (0.25ms)
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/v1/auctions/3" for 127.0.0.1 at 2018-11-26 14:33:39 -0800
+Processing by Api::V1::AuctionsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mAuction Load (0.2ms)[0m  [1m[34mSELECT  "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auctions_controller.rb:30
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Auction (0.25ms)
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/v1/auctions" for 127.0.0.1 at 2018-11-26 14:33:52 -0800
+Processing by Api::V1::AuctionsController#index as */*
+  [1m[36mAuction Load (0.6ms)[0m  [1m[34mSELECT "auctions".* FROM "auctions" ORDER BY "auctions"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/auctions_controller.rb:19
+No serializer found for resource: #<Auction id: 3, title: "new mouse", details: "in box", ends_on: nil, reserved_price: nil, created_at: "2018-11-26 19:00:41", updated_at: "2018-11-26 19:00:41", user_id: nil>
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Auction::ActiveRecord_Relation (0.61ms)
+Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/v1/auctions/1" for 127.0.0.1 at 2018-11-26 14:33:53 -0800
+Processing by Api::V1::AuctionsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mAuction Load (0.9ms)[0m  [1m[34mSELECT  "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auctions_controller.rb:30
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Auction (1.24ms)
+Completed 200 OK in 15ms (Views: 6.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/v1/auctions/1" for 127.0.0.1 at 2018-11-26 14:34:53 -0800
+Processing by Api::V1::AuctionsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mAuction Load (0.2ms)[0m  [1m[34mSELECT  "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auctions_controller.rb:30
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Auction (0.32ms)
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/v1/auctions/1" for 127.0.0.1 at 2018-11-26 14:35:35 -0800
+Processing by Api::V1::AuctionsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mAuction Load (0.2ms)[0m  [1m[34mSELECT  "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auctions_controller.rb:30
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Auction (0.25ms)
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/v1/auctions/1" for 127.0.0.1 at 2018-11-26 14:35:54 -0800
+Processing by Api::V1::AuctionsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mAuction Load (0.2ms)[0m  [1m[34mSELECT  "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auctions_controller.rb:30
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Auction (0.34ms)
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/v1/auctions/1" for 127.0.0.1 at 2018-11-26 14:41:34 -0800
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/orsolya/.rvm/gems/ruby-2.5.2/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::AuctionsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mAuction Load (0.4ms)[0m  [1m[34mSELECT  "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auctions_controller.rb:30
+[active_model_serializers] Rendered AuctionSerializer with ActiveModelSerializers::Adapter::Attributes (0.33ms)
+Completed 200 OK in 91ms (Views: 63.7ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/api/v1/auctions/1" for 127.0.0.1 at 2018-11-26 14:42:51 -0800
+Processing by Api::V1::AuctionsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mAuction Load (0.3ms)[0m  [1m[34mSELECT  "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auctions_controller.rb:30
+[active_model_serializers] Rendered AuctionSerializer with ActiveModelSerializers::Adapter::Attributes (13.17ms)
+Completed 200 OK in 47ms (Views: 34.2ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/api/v1/auctions/1" for 127.0.0.1 at 2018-11-26 14:43:30 -0800
+Processing by Api::V1::AuctionsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mAuction Load (0.8ms)[0m  [1m[34mSELECT  "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auctions_controller.rb:30
+[active_model_serializers]   [1m[36mBid Load (0.5ms)[0m  [1m[34mSELECT "bids".* FROM "bids" WHERE "bids"."auction_id" = $1[0m  [["auction_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/auctions_controller.rb:14
+[active_model_serializers] Rendered AuctionSerializer with ActiveModelSerializers::Adapter::Attributes (48.89ms)
+Completed 200 OK in 83ms (Views: 59.6ms | ActiveRecord: 10.4ms)
+
+
+Started GET "/api/v1/auctions/1" for 127.0.0.1 at 2018-11-26 14:43:59 -0800
+Processing by Api::V1::AuctionsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mAuction Load (0.3ms)[0m  [1m[34mSELECT  "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auctions_controller.rb:30
+[active_model_serializers]   [1m[36mBid Load (0.3ms)[0m  [1m[34mSELECT "bids".* FROM "bids" WHERE "bids"."auction_id" = $1[0m  [["auction_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/auctions_controller.rb:14
+[active_model_serializers] Rendered AuctionSerializer with ActiveModelSerializers::Adapter::Attributes (2.77ms)
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/v1/auctions/1" for 127.0.0.1 at 2018-11-26 14:44:48 -0800
+Processing by Api::V1::AuctionsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mAuction Load (0.3ms)[0m  [1m[34mSELECT  "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auctions_controller.rb:30
+[active_model_serializers]   [1m[36mBid Load (0.3ms)[0m  [1m[34mSELECT "bids".* FROM "bids" WHERE "bids"."auction_id" = $1[0m  [["auction_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/auctions_controller.rb:14
+[active_model_serializers] Rendered AuctionSerializer with ActiveModelSerializers::Adapter::Attributes (2.81ms)
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/v1/auctions/1" for 127.0.0.1 at 2018-11-26 14:45:04 -0800
+Processing by Api::V1::AuctionsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mAuction Load (0.4ms)[0m  [1m[34mSELECT  "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auctions_controller.rb:30
+[active_model_serializers]   [1m[36mBid Load (0.3ms)[0m  [1m[34mSELECT "bids".* FROM "bids" WHERE "bids"."auction_id" = $1[0m  [["auction_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/auctions_controller.rb:14
+[active_model_serializers] Rendered AuctionSerializer with ActiveModelSerializers::Adapter::Attributes (2.13ms)
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/v1/auctions/1" for 127.0.0.1 at 2018-11-26 14:45:23 -0800
+Processing by Api::V1::AuctionsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mAuction Load (0.9ms)[0m  [1m[34mSELECT  "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auctions_controller.rb:30
+[active_model_serializers]   [1m[36mBid Load (0.2ms)[0m  [1m[34mSELECT "bids".* FROM "bids" WHERE "bids"."auction_id" = $1[0m  [["auction_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/auctions_controller.rb:14
+[active_model_serializers] Rendered AuctionSerializer with ActiveModelSerializers::Adapter::Attributes (2.54ms)
+Completed 200 OK in 6ms (Views: 2.9ms | ActiveRecord: 1.1ms)
+
+
