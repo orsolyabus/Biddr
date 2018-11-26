@@ -600,3 +600,67 @@ FOREIGN KEY ("user_id")
   [1m[36mBid Load (0.4ms)[0m  [1m[34mSELECT "bids".* FROM "bids"[0m
   [1m[36mBid Load (1.1ms)[0m  [1m[34mSELECT "bids".* FROM "bids"[0m
   [1m[36mAuction Load (1.1ms)[0m  [1m[34mSELECT "auctions".* FROM "auctions"[0m
+  [1m[36mBid Load (0.3ms)[0m  [1m[34mSELECT  "bids".* FROM "bids" ORDER BY "bids"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mAuction Load (0.2ms)[0m  [1m[34mSELECT  "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Started POST "/api/v1/auctions" for 127.0.0.1 at 2018-11-26 12:15:32 -0800
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/orsolya/.rvm/gems/ruby-2.5.2/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::AuctionsController#create as */*
+  Parameters: {"auction"=>{"title"=>"laptop", "details"=>"used but working "}}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.15ms)
+Filter chain halted as :authenticate_user! rendered or redirected
+Completed 401 Unauthorized in 8ms (Views: 7.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/v1/sessions?email=orsi@test.ca&password=[FILTERED]" for 127.0.0.1 at 2018-11-26 12:19:26 -0800
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"orsi@test.ca", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "orsi@test.ca"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:4
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/application_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 200 OK in 92ms (Views: 1.6ms | ActiveRecord: 10.6ms)
+
+
+Started POST "/api/v1/sessions?email=orsi@test.ca&password=[FILTERED]" for 127.0.0.1 at 2018-11-26 12:21:13 -0800
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"orsi@test.ca", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "orsi@test.ca"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:4
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/application_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 200 OK in 76ms (Views: 4.5ms | ActiveRecord: 3.2ms)
+
+
+Started POST "/api/v1/sessions?email=orsi@test.ca&password=[FILTERED]" for 127.0.0.1 at 2018-11-26 12:22:40 -0800
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"orsi@test.ca", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "orsi@test.ca"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:4
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/application_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 200 OK in 78ms (Views: 4.9ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/api/v1/sessions?email=orsi@test.ca&password=[FILTERED]" for 127.0.0.1 at 2018-11-26 12:33:46 -0800
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"orsi@test.ca", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "orsi@test.ca"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:4
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/application_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 200 OK in 65ms (Views: 1.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/api/v1/auctions" for 127.0.0.1 at 2018-11-26 12:34:05 -0800
+Processing by Api::V1::AuctionsController#create as */*
+  Parameters: {"auction"=>{"title"=>"laptop", "details"=>"used but working "}}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.29ms)
+Filter chain halted as :authenticate_user! rendered or redirected
+Completed 401 Unauthorized in 3ms (Views: 1.9ms | ActiveRecord: 0.0ms)
+
+
