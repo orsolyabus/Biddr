@@ -139,3 +139,4 @@ Processing by Api::V1::AuctionsController#index as */*
 Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 1.7ms)
 
 
+  [1m[36mAuction Load (0.3ms)[0m  [1m[34mSELECT "auctions".* FROM "auctions"[0m
