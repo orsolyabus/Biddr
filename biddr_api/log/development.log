@@ -1352,3 +1352,14 @@ Processing by Api::V1::AuctionsController#show as */*
 Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.6ms)
 
 
+Started GET "/api/v1/auctions/1" for 127.0.0.1 at 2018-11-26 15:34:44 -0800
+Processing by Api::V1::AuctionsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mAuction Load (10.3ms)[0m  [1m[34mSELECT  "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auctions_controller.rb:30
+[active_model_serializers]   [1m[36mBid Load (0.8ms)[0m  [1m[34mSELECT "bids".* FROM "bids" WHERE "bids"."auction_id" = $1[0m  [["auction_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/auctions_controller.rb:14
+[active_model_serializers] Rendered AuctionSerializer with ActiveModelSerializers::Adapter::Attributes (6.91ms)
+Completed 200 OK in 20ms (Views: 7.9ms | ActiveRecord: 11.0ms)
+
+

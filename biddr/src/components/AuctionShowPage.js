@@ -3,6 +3,7 @@ import { Auction } from "./requests";
 // import { Bid } from "./requests";
 
 import BidList from "./BidList";
+import BidForm from './BidForm';
 
 class AuctionShowPage extends Component {
   constructor (props){
@@ -58,6 +59,7 @@ class AuctionShowPage extends Component {
         <small>seller: {this.state.auction.user ? this.state.auction.user.email : "None" }</small>
         <p>Reserve price: {this.state.auction.reserved_price}</p>
         <p>Auction ends: {this.state.auction.ends_on}</p>
+        <BidForm/>
         <BidList bids={this.state.auction.bids} />
       </main>
     );
