@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Auction } from "./requests";
+// import { Bid } from "./requests";
+
+import BidList from "./BidList";
 
 class AuctionShowPage extends Component {
   constructor (props){
@@ -7,18 +10,27 @@ class AuctionShowPage extends Component {
 
     this.state = {
       loading: true ,
-      auction: {}
+      auction: {},
+      // bids: []
     }
   }
   componentDidMount(){
-    const id = this.props.match.params.id;
-    Auction.one(id).then(auction => {
+    const auction_id = this.props.match.params.id;
+    Auction.one(auction_id).then(auction => {
       console.log(auction)
       this.setState({
         auction: auction,
         loading: false
       })
-    })
+    });
+    // Bid.all(auction_id).then(bids => {
+    //   console.log(bids)
+    //   this.setState({
+    //     ...this.state,
+    //     bids: bids,
+    //     loading: false
+    //   })
+    // });
     
   }
 
@@ -46,7 +58,7 @@ class AuctionShowPage extends Component {
         <small>seller: {this.state.auction.user ? this.state.auction.user.email : "None" }</small>
         <p>Reserve price: {this.state.auction.reserved_price}</p>
         <p>Auction ends: {this.state.auction.ends_on}</p>
-        
+        <BidList bids={this.state.auction.bids} />
       </main>
     );
   }

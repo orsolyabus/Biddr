@@ -13,6 +13,11 @@ class Api::V1::BidsController < Api::ApplicationController
     end
   end
 
+  def index
+    bids = Bid.where(auction_id: params[:auction_id])order created_at: :desc
+    render json: bids
+  end
+
   private
 
   def bid_params
