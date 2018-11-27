@@ -10,6 +10,12 @@ import { NavLink } from "react-router-dom";
       <NavLink exact to="/auctions">
         Auctions
       </NavLink>
+      {/* <NavLink exact to="/auctions/new">
+        New Auction
+      </NavLink> */}
+      <NavLink exact to="/session/new">
+        Sign In
+      </NavLink>
     </nav>
   );
 };

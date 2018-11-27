@@ -5,6 +5,7 @@ import './App.css';
 import WelcomePage from "./WelcomePage";
 import AuctionsIndexPage from "./AuctionsIndexPage";
 import AuctionShowPage from "./AuctionShowPage";
+import SignInPage from "./SignInPage";
 
 class App extends Component {
   render() {
@@ -13,6 +14,11 @@ class App extends Component {
         <div className="App">
           <NavBar/>
           <Route path="/" exact component= {WelcomePage}/>
+          <Route path="/session/new" exact render={routeProps => (
+                <SignInPage {...routeProps} onSignIn={this.getUser} />
+              )}
+            />
+
           <Route path="/auctions/:id" exact component= {AuctionShowPage}/>
           <Route path="/auctions/" exact component= {AuctionsIndexPage}/>
           
