@@ -4,7 +4,7 @@ class Api::V1::BidsController < Api::ApplicationController
 
   def create
     bid = Bid.new bid_params
-    bid.auction = Auction.find params[:auction_id]
+    bid.auction = auction
     bid.user = current_user
     bid.save!
     render json: bid
@@ -21,7 +21,11 @@ class Api::V1::BidsController < Api::ApplicationController
     params.require(:bid).permit(:offer)
   end
 
+  def auction
+    auction = Auction.find params[:auction_id]
+  end
+
   def authorize_user!
-    render json: {status: 403} unless can? :create, Bid
+    raise unless can? :bid_on, auction
   end
 end

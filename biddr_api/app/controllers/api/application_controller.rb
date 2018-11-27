@@ -19,6 +19,7 @@ class Api::ApplicationController < ApplicationController
       render(json: { errors: ["Unauthorized"] }, status: 401)
     end
   end
+
   def record_invalid(error)
     record = error.record
     errors = record.errors.map do |field, message|
@@ -35,6 +36,22 @@ class Api::ApplicationController < ApplicationController
       json: {
         status: 422,
         errors: errors
+      }
+    )
+  end
+
+  def standard_error(error)
+
+    logger.error error.full_message
+
+    render(
+      status: 500,
+      json: {
+        status: 500,
+        errors: [{
+          type: error.class.to_s,
+          message: error.message
+        }]
       }
     )
   end

@@ -46,8 +46,9 @@ class AuctionShowPage extends Component {
         this.setState({
           auction:{
             ...auction,
-            bids: [bid].concat(bids)
-          }
+            bids: [bid].concat(bids),
+          },
+          errors: []
         })
       }
     });

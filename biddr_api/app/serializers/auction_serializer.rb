@@ -8,6 +8,6 @@ class AuctionSerializer < ActiveModel::Serializer
   end
 
   def ends_on
-    object.ends_on.strftime('%Y-%B-%d')
+    object.ends_on&.strftime('%Y-%B-%d')
   end
 end
