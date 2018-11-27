@@ -21,9 +21,9 @@ import { NavLink } from "react-router-dom";
       <NavLink exact to="/auctions">
         Auctions
       </NavLink>
-      {/* <NavLink exact to="/auctions/new">
+      <NavLink exact to="/auctions/new">
         New Auction
-      </NavLink> */}
+      </NavLink>
       {currentUser ? (
         <>
           <span>{currentUser.email}</span>

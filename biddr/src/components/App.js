@@ -7,7 +7,9 @@ import './App.css';
 import WelcomePage from "./WelcomePage";
 import AuctionsIndexPage from "./AuctionsIndexPage";
 import AuctionShowPage from "./AuctionShowPage";
+import AuctionNewPage from "./AuctionNewPage";
 import SignInPage from "./SignInPage";
+import AuthRoute from "./AuthRoute";
 
 class App extends Component {
   constructor(props) {
@@ -60,9 +62,12 @@ class App extends Component {
           <Switch>
             <Route path="/" exact component= {WelcomePage}/>
             <Route path="/session/new" exact render={routeProps => (
-                  <SignInPage {...routeProps} onSignIn={this.getUser} />
-                )}
-              />
+                <SignInPage {...routeProps} onSignIn={this.getUser} />
+              )}
+            />
+            <AuthRoute isAuth={currentUser} path="/auctions/new" exact
+              component={AuctionNewPage}
+            />
 
             <Route path="/auctions/:id" exact component= {AuctionShowPage}/>
             <Route path="/auctions/" exact component= {AuctionsIndexPage}/>
