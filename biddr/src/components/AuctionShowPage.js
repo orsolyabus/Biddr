@@ -25,6 +25,7 @@ class AuctionShowPage extends Component {
         errors: []
       })
     });
+    this.createBid = this.createBid.bind(this)
   };
   
 
@@ -34,7 +35,8 @@ class AuctionShowPage extends Component {
       if (bid.errors) {
         console.log(bid.errors)
         this.setState({ 
-          ...this.state,
+          auction: this.state.auction,
+          loading: false,
           errors: bid.errors
          });
       } else {
