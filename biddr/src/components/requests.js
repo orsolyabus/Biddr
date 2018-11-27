@@ -28,6 +28,16 @@ export const Bid = {
     return fetch(`${BASE_URL}/auctions${id}/bids`, {
       credentials: "include"
     }).then(res => res.json());
+  },
+  create(params){
+    return fetch(`${BASE_URL}/auctions/${params.auction_id}/bids`, {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(params)
+    }).then(res => res.json());
   }
 }
 

@@ -1,6 +1,6 @@
 class Api::V1::BidsController < Api::ApplicationController
   before_action :authenticate_user!, only: [:create]
-  before_save :authorize_user!
+  before_action :authorize_user!
 
   def create
     bid = Bid.new bid_params
@@ -10,10 +10,10 @@ class Api::V1::BidsController < Api::ApplicationController
     render json: bid
   end
 
-  def index
-    bids = Bid.where(auction_id: params[:auction_id])order created_at: :desc
-    render json: bids
-  end
+  # def index
+  #   bids = Bid.where(auction_id: params[:auction_id])order created_at: :desc
+  #   render json: bids
+  # end
 
   private
 

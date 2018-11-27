@@ -1,24 +1,27 @@
 import React from "react";
+import FormErrors from "./FormErrors";
 
 const BidForm = props => {
-  // const handleSubmit = event => {
-  //   event.preventDefault();
 
-  //   const { currentTarget } = event;
-  //   const formData = new FormData(currentTarget);
+  const handleSubmit = event => {
+    event.preventDefault();
 
-  //   props.onSubmit({
-  //     offer: formData.get("offer"),
-  //   });
+    const { currentTarget } = event;
+    const formData = new FormData(currentTarget);
 
-  //   currentTarget.reset();
-  // };
+    props.onSubmit({
+      offer: formData.get("offer"),
+      auction_id: props.auction_id
+    });
+
+    currentTarget.reset();
+  };
   return (
-    <form className="QuestionForm"> {/*onSubmit={handleSubmit}*/}
+    <form className="QuestionForm" onSubmit={handleSubmit} >
       <div>
         <label htmlFor="offer">offer</label> <br />
         <input name="offer" id="offer" />
-        {/* <FormErrors forField="offer" errors={props.errors} /> */}
+        <FormErrors forField="offer" errors={props.errors} />
       </div>
      
       <div>

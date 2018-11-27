@@ -7,8 +7,8 @@ class Bid < ApplicationRecord
   private
 
   def greater_than_last_bid
-    if Bid.where(auction_id: auction_id)
-      if offer <= Bid.where(auction_id: auction_id).last&.offer
+    if Bid.where(auction_id: auction_id).length > 0
+      if offer <= Bid.where(auction_id: auction_id).last.offer
         errors.add(:offer , "offer has to be grater then the last")
       end
     end

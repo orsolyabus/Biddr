@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Auction } from "./requests";
-// import { Bid } from "./requests";
+import { Bid } from "./requests";
 
 import BidList from "./BidList";
 import BidForm from './BidForm';
@@ -12,7 +12,7 @@ class AuctionShowPage extends Component {
     this.state = {
       loading: true ,
       auction: {},
-      // bids: []
+      errors: []
     }
   }
   componentDidMount(){
@@ -21,20 +21,27 @@ class AuctionShowPage extends Component {
 
       this.setState({
         auction: auction,
-        loading: false
+        loading: false,
+        errors: []
       })
     });
-    // Bid.all(auction_id).then(bids => {
-    //   console.log(bids)
-    //   this.setState({
-    //     ...this.state,
-    //     bids: bids,
-    //     loading: false
-    //   })
-    // });
-    
-  }
+  };
+  
 
+  createBid(params) {
+    console.log("auction id", params.auction_id)
+    Bid.create(params).then(bid => {
+      if (bid.errors) {
+        console.log(bid.errors)
+        this.setState({ 
+          ...this.state,
+          errors: bid.errors
+         });
+      } else {
+        console.log(bid)
+      }
+    });
+  }
   render() {
     if (this.state.loading){
       return(
@@ -59,7 +66,11 @@ class AuctionShowPage extends Component {
         <small>seller: {this.state.auction.user ? this.state.auction.user.email : "None" }</small>
         <p>Reserve price: {this.state.auction.reserved_price}</p>
         <p>Auction ends: {this.state.auction.ends_on}</p>
-        <BidForm/>
+        <BidForm 
+          errors={this.state.errors}
+          onSubmit={this.createBid}
+          auction_id={this.state.auction.id}
+        />
         <BidList bids={this.state.auction.bids} />
       </main>
     );

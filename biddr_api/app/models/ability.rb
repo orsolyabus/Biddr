@@ -11,7 +11,7 @@ class Ability
     #     can :read, :all
     #   end
     #
-    can (:create, Bid) do |bid|
+    can :create, Bid do |bid|
       user.persisted? && user!= bid.auction.user
     end
   end
