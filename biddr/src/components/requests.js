@@ -39,3 +39,11 @@ export const Session = {
     }).then(res => res.json());
   }
 };
+
+export const User = {
+  current() {
+    return fetch(`${BASE_URL}/users/current`, {
+      credentials: "include"
+    }).then(res => res.json());
+  }
+};
