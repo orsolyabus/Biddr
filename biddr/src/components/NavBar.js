@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 
  const NavBar = props => {
   const { currentUser } = props;
-  console.log(currentUser)
 
   const handleSignOutClick = event => {
     event.preventDefault();
