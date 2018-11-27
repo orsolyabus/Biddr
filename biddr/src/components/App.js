@@ -30,6 +30,7 @@ class App extends Component {
     User.current().then(currentUser => {
       if (currentUser.id) {
         this.setState({ currentUser });
+        console.log(currentUser)
       }
 
       this.setState({ loading: false });
