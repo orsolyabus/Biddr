@@ -2781,3 +2781,115 @@ Processing by Api::V1::UsersController#current as */*
 Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 0.8ms)
 
 
+Started GET "/api/v1/users/current" for 127.0.0.1 at 2018-11-26 17:37:27 -0800
+Processing by Api::V1::UsersController#current as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/application_controller.rb:7
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.26ms)
+Completed 200 OK in 5ms (Views: 1.5ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/api/v1/auctions" for 127.0.0.1 at 2018-11-26 17:40:11 -0800
+Processing by Api::V1::AuctionsController#create as */*
+  Parameters: {"title"=>"", "details"=>"", "auction"=>{"title"=>"", "details"=>""}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/application_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/auctions_controller.rb:7
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/auctions_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.22ms)
+Completed 422 Unprocessable Entity in 26ms (Views: 6.6ms | ActiveRecord: 7.2ms)
+
+
+Started POST "/api/v1/auctions" for 127.0.0.1 at 2018-11-26 17:40:42 -0800
+Processing by Api::V1::AuctionsController#create as */*
+  Parameters: {"title"=>"Proident consequatur Quam ullam quasi consectetur necessitatibus sunt similique ut cillum", "details"=>"Vel et possimus esse quibusdam inventore ut", "auction"=>{"title"=>"Proident consequatur Quam ullam quasi consectetur necessitatibus sunt similique ut cillum", "details"=>"Vel et possimus esse quibusdam inventore ut"}}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/application_controller.rb:9
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/auctions_controller.rb:7
+  [1m[36mAuction Create (2.0ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "details", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Proident consequatur Quam ullam quasi consectetur necessitatibus sunt similique ut cillum"], ["details", "Vel et possimus esse quibusdam inventore ut"], ["created_at", "2018-11-27 01:40:42.237964"], ["updated_at", "2018-11-27 01:40:42.237964"], ["user_id", 1]]
+  ↳ app/controllers/api/v1/auctions_controller.rb:7
+  [1m[35m (51.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/auctions_controller.rb:7
+[active_model_serializers]   [1m[36mBid Load (1.3ms)[0m  [1m[34mSELECT "bids".* FROM "bids" WHERE "bids"."auction_id" = $1[0m  [["auction_id", 6]]
+[active_model_serializers]   ↳ app/controllers/api/v1/auctions_controller.rb:8
+[active_model_serializers] Rendered AuctionSerializer with ActiveModelSerializers::Adapter::Attributes (31.27ms)
+Completed 200 OK in 130ms (Views: 53.5ms | ActiveRecord: 62.3ms)
+
+
+Started GET "/api/v1/auctions/6" for 127.0.0.1 at 2018-11-26 17:40:42 -0800
+Processing by Api::V1::AuctionsController#show as */*
+  Parameters: {"id"=>"6"}
+  [1m[36mAuction Load (0.5ms)[0m  [1m[34mSELECT  "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auctions_controller.rb:28
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/application_controller.rb:9
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/auctions_controller.rb:12
+[active_model_serializers]   [1m[36mBid Load (0.8ms)[0m  [1m[34mSELECT "bids".* FROM "bids" WHERE "bids"."auction_id" = $1[0m  [["auction_id", 6]]
+[active_model_serializers]   ↳ app/controllers/api/v1/auctions_controller.rb:12
+[active_model_serializers] Rendered AuctionSerializer with ActiveModelSerializers::Adapter::Attributes (7.16ms)
+Completed 200 OK in 14ms (Views: 9.8ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/api/v1/users/current" for 127.0.0.1 at 2018-11-26 17:40:45 -0800
+Processing by Api::V1::UsersController#current as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/application_controller.rb:9
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.16ms)
+Completed 200 OK in 4ms (Views: 1.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/v1/auctions/6" for 127.0.0.1 at 2018-11-26 17:40:46 -0800
+Processing by Api::V1::AuctionsController#show as */*
+  Parameters: {"id"=>"6"}
+  [1m[36mAuction Load (0.3ms)[0m  [1m[34mSELECT  "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auctions_controller.rb:28
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/application_controller.rb:9
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/auctions_controller.rb:12
+[active_model_serializers]   [1m[36mBid Load (0.3ms)[0m  [1m[34mSELECT "bids".* FROM "bids" WHERE "bids"."auction_id" = $1[0m  [["auction_id", 6]]
+[active_model_serializers]   ↳ app/controllers/api/v1/auctions_controller.rb:12
+[active_model_serializers] Rendered AuctionSerializer with ActiveModelSerializers::Adapter::Attributes (3.28ms)
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/v1/users/current" for 127.0.0.1 at 2018-11-26 17:41:43 -0800
+Processing by Api::V1::UsersController#current as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/application_controller.rb:9
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.19ms)
+Completed 200 OK in 3ms (Views: 0.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/auctions/6" for 127.0.0.1 at 2018-11-26 17:41:43 -0800
+Processing by Api::V1::AuctionsController#show as */*
+  Parameters: {"id"=>"6"}
+  [1m[36mAuction Load (0.7ms)[0m  [1m[34mSELECT  "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auctions_controller.rb:28
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/application_controller.rb:9
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/auctions_controller.rb:12
+[active_model_serializers]   [1m[36mBid Load (1.1ms)[0m  [1m[34mSELECT "bids".* FROM "bids" WHERE "bids"."auction_id" = $1[0m  [["auction_id", 6]]
+[active_model_serializers]   ↳ app/controllers/api/v1/auctions_controller.rb:12
+[active_model_serializers] Rendered AuctionSerializer with ActiveModelSerializers::Adapter::Attributes (4.31ms)
+Completed 200 OK in 8ms (Views: 4.9ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/api/v1/auctions" for 127.0.0.1 at 2018-11-26 17:41:46 -0800
+Processing by Api::V1::AuctionsController#create as */*
+  Parameters: {"title"=>"", "details"=>"", "auction"=>{"title"=>"", "details"=>""}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/application_controller.rb:9
+  [1m[35m (3.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/auctions_controller.rb:7
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/auctions_controller.rb:7
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.85ms)
+Completed 422 Unprocessable Entity in 23ms (Views: 2.8ms | ActiveRecord: 4.4ms)
+
+

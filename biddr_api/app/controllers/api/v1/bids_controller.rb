@@ -6,11 +6,8 @@ class Api::V1::BidsController < Api::ApplicationController
     bid = Bid.new bid_params
     bid.auction = Auction.find params[:auction_id]
     bid.user = current_user
-    if bid.save
-      render json: bid
-    else
-      render json: {errors: bid.errors.full_messages}
-    end
+    bid.save!
+    render json: bid
   end
 
   def index

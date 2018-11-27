@@ -1,5 +1,5 @@
 import React from "react";
-// import FormErrors from "./FormErrors";
+import FormErrors from "./FormErrors";
 
 const AuctionForm = props => {
   const handleSubmit = event => {
@@ -19,12 +19,12 @@ const AuctionForm = props => {
       <div>
         <label htmlFor="title">Title</label> <br />
         <input name="title" id="title" />
-        {/* <FormErrors forField="title" errors={props.errors} /> */}
+        <FormErrors forField="title" errors={props.errors} />
       </div>
       <div>
         <label htmlFor="details">details</label> <br />
         <textarea name="details" id="details" cols="60" rows="4" />
-        {/* <FormErrors forField="details" errors={props.errors} /> */}
+        <FormErrors forField="details" errors={props.errors} />
       </div>
       <div>
         <input type="submit" value="Submit" />
