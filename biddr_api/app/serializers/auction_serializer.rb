@@ -6,4 +6,8 @@ class AuctionSerializer < ActiveModel::Serializer
   def bids
     object.bids.order(created_at: :desc)
   end
+
+  def ends_on
+    object.ends_on.strftime('%Y-%B-%d')
+  end
 end

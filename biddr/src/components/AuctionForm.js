@@ -10,7 +10,9 @@ const AuctionForm = props => {
 
     props.onSubmit({
       title: formData.get("title"),
-      details: formData.get("details")
+      details: formData.get("details"),
+      reserved_price: formData.get("reserved_price"),
+      ends_on: formData.get("ends_on"),
     });
   };
 
@@ -25,6 +27,16 @@ const AuctionForm = props => {
         <label htmlFor="details">details</label> <br />
         <textarea name="details" id="details" cols="60" rows="4" />
         <FormErrors forField="details" errors={props.errors} />
+      </div>
+      <div>
+        <label htmlFor="ends_on">Ends on</label> <br />
+        <input type="date" name="ends_on" id="ends_on"  />
+        <FormErrors forField="ends_on" errors={props.errors} />
+      </div>
+      <div>
+        <label htmlFor="reserved_price">Reserved price</label> <br />
+        <input name="reserved_price" id="reserved_price"  />
+        <FormErrors forField="reserved_price" errors={props.errors} />
       </div>
       <div>
         <input type="submit" value="Submit" />
