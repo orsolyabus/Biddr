@@ -4688,3 +4688,48 @@ Unpermitted parameter: :auction_id
 Completed 200 OK in 77ms (Views: 4.5ms | ActiveRecord: 43.5ms)
 
 
+Started GET "/api/v1/users/current" for 127.0.0.1 at 2018-11-26 19:19:00 -0800
+Processing by Api::V1::UsersController#current as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/application_controller.rb:9
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.19ms)
+Completed 200 OK in 33ms (Views: 5.6ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/api/v1/auctions/7" for 127.0.0.1 at 2018-11-26 19:19:01 -0800
+Processing by Api::V1::AuctionsController#show as */*
+  Parameters: {"id"=>"7"}
+  [1m[36mAuction Load (0.3ms)[0m  [1m[34mSELECT  "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/auctions_controller.rb:28
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/application_controller.rb:9
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/auctions_controller.rb:12
+[active_model_serializers]   [1m[36mBid Load (0.6ms)[0m  [1m[34mSELECT "bids".* FROM "bids" WHERE "bids"."auction_id" = $1 ORDER BY "bids"."created_at" DESC[0m  [["auction_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/auctions_controller.rb:12
+[active_model_serializers] Rendered AuctionSerializer with ActiveModelSerializers::Adapter::Attributes (35.6ms)
+Completed 200 OK in 74ms (Views: 41.2ms | ActiveRecord: 9.9ms)
+
+
+Started POST "/api/v1/auctions/7/bids" for 127.0.0.1 at 2018-11-26 19:19:06 -0800
+Processing by Api::V1::BidsController#create as */*
+  Parameters: {"offer"=>"555", "auction_id"=>"7", "bid"=>{"offer"=>"555", "auction_id"=>"7"}}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/application_controller.rb:9
+Unpermitted parameter: :auction_id
+  [1m[36mAuction Load (0.7ms)[0m  [1m[34mSELECT  "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/bids_controller.rb:7
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/bids_controller.rb:9
+  [1m[36mBid Load (1.3ms)[0m  [1m[34mSELECT "bids".* FROM "bids" WHERE "bids"."auction_id" = $1[0m  [["auction_id", 7]]
+  ↳ app/models/bid.rb:10
+  [1m[36mBid Load (1.3ms)[0m  [1m[34mSELECT  "bids".* FROM "bids" WHERE "bids"."auction_id" = $1 ORDER BY "bids"."id" DESC LIMIT $2[0m  [["auction_id", 7], ["LIMIT", 1]]
+  ↳ app/models/bid.rb:11
+  [1m[36mBid Create (1.4ms)[0m  [1m[32mINSERT INTO "bids" ("offer", "created_at", "updated_at", "auction_id", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["offer", 555], ["created_at", "2018-11-27 03:19:06.921128"], ["updated_at", "2018-11-27 03:19:06.921128"], ["auction_id", 7], ["user_id", 1]]
+  ↳ app/controllers/api/v1/bids_controller.rb:9
+  [1m[35m (27.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/bids_controller.rb:9
+[active_model_serializers] Rendered BidSerializer with ActiveModelSerializers::Adapter::Attributes (0.89ms)
+Completed 200 OK in 77ms (Views: 8.7ms | ActiveRecord: 33.4ms)
+
+
