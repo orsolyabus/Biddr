@@ -30,17 +30,25 @@ class AuctionShowPage extends Component {
   
 
   createBid(params) {
-    console.log("auction id", params.auction_id)
+    // console.log("auction id", params.auction_id)
     Bid.create(params).then(bid => {
       if (bid.errors) {
-        console.log(bid.errors)
+        // console.log(bid.errors)
         this.setState({ 
           auction: this.state.auction,
           loading: false,
           errors: bid.errors
          });
       } else {
-        console.log(bid)
+        // console.log(bid)
+        const {auction, auction: {bids}} = this.state
+        // console.log(bids)
+        this.setState({
+          auction:{
+            ...auction,
+            bids: [bid].concat(bids)
+          }
+        })
       }
     });
   }
@@ -73,6 +81,7 @@ class AuctionShowPage extends Component {
           onSubmit={this.createBid}
           auction_id={this.state.auction.id}
         />
+        {/* <p>{console.log(this.state.auction.bids)}</p> */}
         <BidList bids={this.state.auction.bids} />
       </main>
     );
