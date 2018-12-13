@@ -12,3 +12,27 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+main {
+  padding: 10px;
+}
+ .NavBar {
+  display: flex;
+   padding: 10px;
+}
+ .NavBar > * {
+  margin: 0 10px;
+}
+ .NavBar > a {
+  color: lightgrey;
+}
+ .NavBar > a.active {
+  color: deepskyblue;
+}
+.FormErrors {
+  color: red;
+  padding-left: 1.2em;
+  /* top | right | bottom | left */
+  margin: 0 0 5px 0;
+  font-size: 0.8em;
+}
